@@ -1,0 +1,57 @@
+type User {
+  id: ID! @unique
+  email: String! @unique
+  password: String!
+  username: String! @unique
+  type: String!
+  serie: [SerieUser!]!
+  film: [FilmUser!]!
+}
+type Serie {
+  id: ID! @unique
+  name: String!
+  genre: String!
+  description: String!
+  nbEp: String!
+  nbSais: String!
+  saisons: [Saison!]!
+  episodes: [Episode!]!
+}
+
+type Saison {
+  id: ID! @unique
+  number: String!
+  serie: Serie!
+  episodes: [Episode!]!
+}
+
+type Episode {
+  id: ID! @unique
+  name: String!
+  description: String!
+  saison: Saison!
+  serie: Serie!
+}
+
+type Film {
+  id: ID! @unique
+  name: String!
+  genre: String!
+  description: String!
+  duration: String!
+}
+
+type FilmUser {
+  id: ID! @unique
+  finish: Boolean
+  progress: String!
+  film: Film!
+  user: User!
+}
+
+type SerieUser {
+  id: ID! @unique
+  finish: Boolean
+  serie: Serie!
+  user: User!
+}

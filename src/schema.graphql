@@ -1,0 +1,118 @@
+# import UserOrderByInput from "./generated/prisma.graphql"
+
+type Query {
+  users(orderBy: UserOrderByInput): [User!]!
+  user(id: ID!): User
+  amIAuth: AuthCheck!
+
+  films: [Film!]!
+  film(idFilm: String!): Film
+
+  series: [Serie!]!
+  serie(idSerie: String!): Serie!
+
+  filmsUser: [FilmUser]!
+  filmsUsers: [FilmUser]!
+  filmsUserFinished: [FilmUser]!
+  filmsUserNotFinished: [FilmUser]!
+
+  seriesUser: [SerieUser]!
+  seriesUsers: [SerieUser]!
+}
+
+type Mutation {
+  signup(email: String!, password: String!, username: String!): AuthPayload!
+  login(email: String!, password: String!): AuthPayload!
+  updateUser(username: String!): User!
+
+  createFilm(name: String!, genre: String!, description: String!, duration: String!): Film!
+  updateFilm(id: String!, name: String!, genre: String!, description: String!, duration: String!): Film!
+  deleteFilm(idFilm: String!): Film!
+
+  createSerie(name: String!, genre: String!, description: String!, nbEp: String!, nbSais: String!): Serie!
+  updateSerie(idSerie: String!, name: String!, genre: String!, description: String!, nbEp: String!, nbSais: String!): Serie!
+  deleteSerie(idSerie: String!): Serie!
+
+  createSaison(number: String!, idSerie: String!): Saison!
+  deleteSaison(idSais: String!): Saison!
+
+  createEpisode(name: String, description: String!, idSais: String!, idSerie: String!): Episode!
+  updateEpisode(idEp: String!, name: String!, description: String!): Episode!
+  deleteEpisode(idEp: String!): Episode!
+
+  createFilmUser(idFilm: String!): FilmUser!
+  updateFilmUser(idFilm: String!, finish: Boolean!, progress: String!): FilmUser!
+  deleteFilmUser(idFilm: String!): FilmUser!
+
+  createSerieUser(idSerie: String!): SerieUser!
+  updateSerieUser(idSerie: String!, finish: Boolean!): SerieUser!
+  deleteSerieUser(idSerie: String!): SerieUser!
+}
+
+type AuthCheck {
+  isAuth: Boolean!
+  me: User
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+type User {
+  id: ID!
+  email: String!
+  username: String!
+  type: String!
+  serie: [SerieUser!]!
+  film: [FilmUser!]!
+}
+
+type Serie {
+  id: ID!
+  name: String!
+  genre: String!
+  description: String!
+  nbEp: String!
+  nbSais: String!
+  saisons: [Saison!]!
+  episodes: [Episode!]!
+}
+
+type Saison {
+  id: ID!
+  number: String!
+  serie: Serie!
+  episodes: [Episode!]!
+}
+
+type Episode {
+  id: ID!
+  name: String!
+  description: String!
+  saison: Saison!
+  serie: Serie!
+}
+
+type Film {
+  id: ID!
+  name: String!
+  genre: String!
+  description: String!
+  duration: String!
+}
+
+type FilmUser {
+  id: ID!
+  finish: Boolean
+  progress: String!
+  film: Film!
+  user: User!
+}
+
+type SerieUser {
+  id: ID!
+  finish: Boolean
+  serie: Serie!
+  user: User!
+}
