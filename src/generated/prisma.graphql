@@ -1,0 +1,1706 @@
+type AggregateEpisode {
+  count: Int!
+}
+
+type AggregateFilm {
+  count: Int!
+}
+
+type AggregateFilmUser {
+  count: Int!
+}
+
+type AggregateSaison {
+  count: Int!
+}
+
+type AggregateSerie {
+  count: Int!
+}
+
+type AggregateSerieUser {
+  count: Int!
+}
+
+type AggregateUser {
+  count: Int!
+}
+
+type BatchPayload {
+  count: Long!
+}
+
+type Episode {
+  id: ID!
+  name: String!
+  description: String!
+  saison: Saison!
+  serie: Serie!
+}
+
+type EpisodeConnection {
+  pageInfo: PageInfo!
+  edges: [EpisodeEdge]!
+  aggregate: AggregateEpisode!
+}
+
+input EpisodeCreateInput {
+  name: String!
+  description: String!
+  saison: SaisonCreateOneWithoutEpisodesInput!
+  serie: SerieCreateOneWithoutEpisodesInput!
+}
+
+input EpisodeCreateManyWithoutSaisonInput {
+  create: [EpisodeCreateWithoutSaisonInput!]
+  connect: [EpisodeWhereUniqueInput!]
+}
+
+input EpisodeCreateManyWithoutSerieInput {
+  create: [EpisodeCreateWithoutSerieInput!]
+  connect: [EpisodeWhereUniqueInput!]
+}
+
+input EpisodeCreateWithoutSaisonInput {
+  name: String!
+  description: String!
+  serie: SerieCreateOneWithoutEpisodesInput!
+}
+
+input EpisodeCreateWithoutSerieInput {
+  name: String!
+  description: String!
+  saison: SaisonCreateOneWithoutEpisodesInput!
+}
+
+type EpisodeEdge {
+  node: Episode!
+  cursor: String!
+}
+
+enum EpisodeOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  description_ASC
+  description_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type EpisodePreviousValues {
+  id: ID!
+  name: String!
+  description: String!
+}
+
+input EpisodeScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  AND: [EpisodeScalarWhereInput!]
+  OR: [EpisodeScalarWhereInput!]
+  NOT: [EpisodeScalarWhereInput!]
+}
+
+type EpisodeSubscriptionPayload {
+  mutation: MutationType!
+  node: Episode
+  updatedFields: [String!]
+  previousValues: EpisodePreviousValues
+}
+
+input EpisodeSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: EpisodeWhereInput
+  AND: [EpisodeSubscriptionWhereInput!]
+  OR: [EpisodeSubscriptionWhereInput!]
+  NOT: [EpisodeSubscriptionWhereInput!]
+}
+
+input EpisodeUpdateInput {
+  name: String
+  description: String
+  saison: SaisonUpdateOneRequiredWithoutEpisodesInput
+  serie: SerieUpdateOneRequiredWithoutEpisodesInput
+}
+
+input EpisodeUpdateManyDataInput {
+  name: String
+  description: String
+}
+
+input EpisodeUpdateManyMutationInput {
+  name: String
+  description: String
+}
+
+input EpisodeUpdateManyWithoutSaisonInput {
+  create: [EpisodeCreateWithoutSaisonInput!]
+  delete: [EpisodeWhereUniqueInput!]
+  connect: [EpisodeWhereUniqueInput!]
+  set: [EpisodeWhereUniqueInput!]
+  disconnect: [EpisodeWhereUniqueInput!]
+  update: [EpisodeUpdateWithWhereUniqueWithoutSaisonInput!]
+  upsert: [EpisodeUpsertWithWhereUniqueWithoutSaisonInput!]
+  deleteMany: [EpisodeScalarWhereInput!]
+  updateMany: [EpisodeUpdateManyWithWhereNestedInput!]
+}
+
+input EpisodeUpdateManyWithoutSerieInput {
+  create: [EpisodeCreateWithoutSerieInput!]
+  delete: [EpisodeWhereUniqueInput!]
+  connect: [EpisodeWhereUniqueInput!]
+  set: [EpisodeWhereUniqueInput!]
+  disconnect: [EpisodeWhereUniqueInput!]
+  update: [EpisodeUpdateWithWhereUniqueWithoutSerieInput!]
+  upsert: [EpisodeUpsertWithWhereUniqueWithoutSerieInput!]
+  deleteMany: [EpisodeScalarWhereInput!]
+  updateMany: [EpisodeUpdateManyWithWhereNestedInput!]
+}
+
+input EpisodeUpdateManyWithWhereNestedInput {
+  where: EpisodeScalarWhereInput!
+  data: EpisodeUpdateManyDataInput!
+}
+
+input EpisodeUpdateWithoutSaisonDataInput {
+  name: String
+  description: String
+  serie: SerieUpdateOneRequiredWithoutEpisodesInput
+}
+
+input EpisodeUpdateWithoutSerieDataInput {
+  name: String
+  description: String
+  saison: SaisonUpdateOneRequiredWithoutEpisodesInput
+}
+
+input EpisodeUpdateWithWhereUniqueWithoutSaisonInput {
+  where: EpisodeWhereUniqueInput!
+  data: EpisodeUpdateWithoutSaisonDataInput!
+}
+
+input EpisodeUpdateWithWhereUniqueWithoutSerieInput {
+  where: EpisodeWhereUniqueInput!
+  data: EpisodeUpdateWithoutSerieDataInput!
+}
+
+input EpisodeUpsertWithWhereUniqueWithoutSaisonInput {
+  where: EpisodeWhereUniqueInput!
+  update: EpisodeUpdateWithoutSaisonDataInput!
+  create: EpisodeCreateWithoutSaisonInput!
+}
+
+input EpisodeUpsertWithWhereUniqueWithoutSerieInput {
+  where: EpisodeWhereUniqueInput!
+  update: EpisodeUpdateWithoutSerieDataInput!
+  create: EpisodeCreateWithoutSerieInput!
+}
+
+input EpisodeWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  saison: SaisonWhereInput
+  serie: SerieWhereInput
+  AND: [EpisodeWhereInput!]
+  OR: [EpisodeWhereInput!]
+  NOT: [EpisodeWhereInput!]
+}
+
+input EpisodeWhereUniqueInput {
+  id: ID
+}
+
+type Film {
+  id: ID!
+  name: String!
+  genre: String!
+  description: String!
+  duration: String!
+}
+
+type FilmConnection {
+  pageInfo: PageInfo!
+  edges: [FilmEdge]!
+  aggregate: AggregateFilm!
+}
+
+input FilmCreateInput {
+  name: String!
+  genre: String!
+  description: String!
+  duration: String!
+}
+
+input FilmCreateOneInput {
+  create: FilmCreateInput
+  connect: FilmWhereUniqueInput
+}
+
+type FilmEdge {
+  node: Film!
+  cursor: String!
+}
+
+enum FilmOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  genre_ASC
+  genre_DESC
+  description_ASC
+  description_DESC
+  duration_ASC
+  duration_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type FilmPreviousValues {
+  id: ID!
+  name: String!
+  genre: String!
+  description: String!
+  duration: String!
+}
+
+type FilmSubscriptionPayload {
+  mutation: MutationType!
+  node: Film
+  updatedFields: [String!]
+  previousValues: FilmPreviousValues
+}
+
+input FilmSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: FilmWhereInput
+  AND: [FilmSubscriptionWhereInput!]
+  OR: [FilmSubscriptionWhereInput!]
+  NOT: [FilmSubscriptionWhereInput!]
+}
+
+input FilmUpdateDataInput {
+  name: String
+  genre: String
+  description: String
+  duration: String
+}
+
+input FilmUpdateInput {
+  name: String
+  genre: String
+  description: String
+  duration: String
+}
+
+input FilmUpdateManyMutationInput {
+  name: String
+  genre: String
+  description: String
+  duration: String
+}
+
+input FilmUpdateOneRequiredInput {
+  create: FilmCreateInput
+  update: FilmUpdateDataInput
+  upsert: FilmUpsertNestedInput
+  connect: FilmWhereUniqueInput
+}
+
+input FilmUpsertNestedInput {
+  update: FilmUpdateDataInput!
+  create: FilmCreateInput!
+}
+
+type FilmUser {
+  id: ID!
+  finish: Boolean
+  progress: String!
+  film: Film!
+  user: User!
+}
+
+type FilmUserConnection {
+  pageInfo: PageInfo!
+  edges: [FilmUserEdge]!
+  aggregate: AggregateFilmUser!
+}
+
+input FilmUserCreateInput {
+  finish: Boolean
+  progress: String!
+  film: FilmCreateOneInput!
+  user: UserCreateOneWithoutFilmInput!
+}
+
+input FilmUserCreateManyWithoutUserInput {
+  create: [FilmUserCreateWithoutUserInput!]
+  connect: [FilmUserWhereUniqueInput!]
+}
+
+input FilmUserCreateWithoutUserInput {
+  finish: Boolean
+  progress: String!
+  film: FilmCreateOneInput!
+}
+
+type FilmUserEdge {
+  node: FilmUser!
+  cursor: String!
+}
+
+enum FilmUserOrderByInput {
+  id_ASC
+  id_DESC
+  finish_ASC
+  finish_DESC
+  progress_ASC
+  progress_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type FilmUserPreviousValues {
+  id: ID!
+  finish: Boolean
+  progress: String!
+}
+
+input FilmUserScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  finish: Boolean
+  finish_not: Boolean
+  progress: String
+  progress_not: String
+  progress_in: [String!]
+  progress_not_in: [String!]
+  progress_lt: String
+  progress_lte: String
+  progress_gt: String
+  progress_gte: String
+  progress_contains: String
+  progress_not_contains: String
+  progress_starts_with: String
+  progress_not_starts_with: String
+  progress_ends_with: String
+  progress_not_ends_with: String
+  AND: [FilmUserScalarWhereInput!]
+  OR: [FilmUserScalarWhereInput!]
+  NOT: [FilmUserScalarWhereInput!]
+}
+
+type FilmUserSubscriptionPayload {
+  mutation: MutationType!
+  node: FilmUser
+  updatedFields: [String!]
+  previousValues: FilmUserPreviousValues
+}
+
+input FilmUserSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: FilmUserWhereInput
+  AND: [FilmUserSubscriptionWhereInput!]
+  OR: [FilmUserSubscriptionWhereInput!]
+  NOT: [FilmUserSubscriptionWhereInput!]
+}
+
+input FilmUserUpdateInput {
+  finish: Boolean
+  progress: String
+  film: FilmUpdateOneRequiredInput
+  user: UserUpdateOneRequiredWithoutFilmInput
+}
+
+input FilmUserUpdateManyDataInput {
+  finish: Boolean
+  progress: String
+}
+
+input FilmUserUpdateManyMutationInput {
+  finish: Boolean
+  progress: String
+}
+
+input FilmUserUpdateManyWithoutUserInput {
+  create: [FilmUserCreateWithoutUserInput!]
+  delete: [FilmUserWhereUniqueInput!]
+  connect: [FilmUserWhereUniqueInput!]
+  set: [FilmUserWhereUniqueInput!]
+  disconnect: [FilmUserWhereUniqueInput!]
+  update: [FilmUserUpdateWithWhereUniqueWithoutUserInput!]
+  upsert: [FilmUserUpsertWithWhereUniqueWithoutUserInput!]
+  deleteMany: [FilmUserScalarWhereInput!]
+  updateMany: [FilmUserUpdateManyWithWhereNestedInput!]
+}
+
+input FilmUserUpdateManyWithWhereNestedInput {
+  where: FilmUserScalarWhereInput!
+  data: FilmUserUpdateManyDataInput!
+}
+
+input FilmUserUpdateWithoutUserDataInput {
+  finish: Boolean
+  progress: String
+  film: FilmUpdateOneRequiredInput
+}
+
+input FilmUserUpdateWithWhereUniqueWithoutUserInput {
+  where: FilmUserWhereUniqueInput!
+  data: FilmUserUpdateWithoutUserDataInput!
+}
+
+input FilmUserUpsertWithWhereUniqueWithoutUserInput {
+  where: FilmUserWhereUniqueInput!
+  update: FilmUserUpdateWithoutUserDataInput!
+  create: FilmUserCreateWithoutUserInput!
+}
+
+input FilmUserWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  finish: Boolean
+  finish_not: Boolean
+  progress: String
+  progress_not: String
+  progress_in: [String!]
+  progress_not_in: [String!]
+  progress_lt: String
+  progress_lte: String
+  progress_gt: String
+  progress_gte: String
+  progress_contains: String
+  progress_not_contains: String
+  progress_starts_with: String
+  progress_not_starts_with: String
+  progress_ends_with: String
+  progress_not_ends_with: String
+  film: FilmWhereInput
+  user: UserWhereInput
+  AND: [FilmUserWhereInput!]
+  OR: [FilmUserWhereInput!]
+  NOT: [FilmUserWhereInput!]
+}
+
+input FilmUserWhereUniqueInput {
+  id: ID
+}
+
+input FilmWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  genre: String
+  genre_not: String
+  genre_in: [String!]
+  genre_not_in: [String!]
+  genre_lt: String
+  genre_lte: String
+  genre_gt: String
+  genre_gte: String
+  genre_contains: String
+  genre_not_contains: String
+  genre_starts_with: String
+  genre_not_starts_with: String
+  genre_ends_with: String
+  genre_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  duration: String
+  duration_not: String
+  duration_in: [String!]
+  duration_not_in: [String!]
+  duration_lt: String
+  duration_lte: String
+  duration_gt: String
+  duration_gte: String
+  duration_contains: String
+  duration_not_contains: String
+  duration_starts_with: String
+  duration_not_starts_with: String
+  duration_ends_with: String
+  duration_not_ends_with: String
+  AND: [FilmWhereInput!]
+  OR: [FilmWhereInput!]
+  NOT: [FilmWhereInput!]
+}
+
+input FilmWhereUniqueInput {
+  id: ID
+}
+
+scalar Long
+
+type Mutation {
+  createEpisode(data: EpisodeCreateInput!): Episode!
+  updateEpisode(data: EpisodeUpdateInput!, where: EpisodeWhereUniqueInput!): Episode
+  updateManyEpisodes(data: EpisodeUpdateManyMutationInput!, where: EpisodeWhereInput): BatchPayload!
+  upsertEpisode(where: EpisodeWhereUniqueInput!, create: EpisodeCreateInput!, update: EpisodeUpdateInput!): Episode!
+  deleteEpisode(where: EpisodeWhereUniqueInput!): Episode
+  deleteManyEpisodes(where: EpisodeWhereInput): BatchPayload!
+  createFilm(data: FilmCreateInput!): Film!
+  updateFilm(data: FilmUpdateInput!, where: FilmWhereUniqueInput!): Film
+  updateManyFilms(data: FilmUpdateManyMutationInput!, where: FilmWhereInput): BatchPayload!
+  upsertFilm(where: FilmWhereUniqueInput!, create: FilmCreateInput!, update: FilmUpdateInput!): Film!
+  deleteFilm(where: FilmWhereUniqueInput!): Film
+  deleteManyFilms(where: FilmWhereInput): BatchPayload!
+  createFilmUser(data: FilmUserCreateInput!): FilmUser!
+  updateFilmUser(data: FilmUserUpdateInput!, where: FilmUserWhereUniqueInput!): FilmUser
+  updateManyFilmUsers(data: FilmUserUpdateManyMutationInput!, where: FilmUserWhereInput): BatchPayload!
+  upsertFilmUser(where: FilmUserWhereUniqueInput!, create: FilmUserCreateInput!, update: FilmUserUpdateInput!): FilmUser!
+  deleteFilmUser(where: FilmUserWhereUniqueInput!): FilmUser
+  deleteManyFilmUsers(where: FilmUserWhereInput): BatchPayload!
+  createSaison(data: SaisonCreateInput!): Saison!
+  updateSaison(data: SaisonUpdateInput!, where: SaisonWhereUniqueInput!): Saison
+  updateManySaisons(data: SaisonUpdateManyMutationInput!, where: SaisonWhereInput): BatchPayload!
+  upsertSaison(where: SaisonWhereUniqueInput!, create: SaisonCreateInput!, update: SaisonUpdateInput!): Saison!
+  deleteSaison(where: SaisonWhereUniqueInput!): Saison
+  deleteManySaisons(where: SaisonWhereInput): BatchPayload!
+  createSerie(data: SerieCreateInput!): Serie!
+  updateSerie(data: SerieUpdateInput!, where: SerieWhereUniqueInput!): Serie
+  updateManySeries(data: SerieUpdateManyMutationInput!, where: SerieWhereInput): BatchPayload!
+  upsertSerie(where: SerieWhereUniqueInput!, create: SerieCreateInput!, update: SerieUpdateInput!): Serie!
+  deleteSerie(where: SerieWhereUniqueInput!): Serie
+  deleteManySeries(where: SerieWhereInput): BatchPayload!
+  createSerieUser(data: SerieUserCreateInput!): SerieUser!
+  updateSerieUser(data: SerieUserUpdateInput!, where: SerieUserWhereUniqueInput!): SerieUser
+  updateManySerieUsers(data: SerieUserUpdateManyMutationInput!, where: SerieUserWhereInput): BatchPayload!
+  upsertSerieUser(where: SerieUserWhereUniqueInput!, create: SerieUserCreateInput!, update: SerieUserUpdateInput!): SerieUser!
+  deleteSerieUser(where: SerieUserWhereUniqueInput!): SerieUser
+  deleteManySerieUsers(where: SerieUserWhereInput): BatchPayload!
+  createUser(data: UserCreateInput!): User!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  deleteUser(where: UserWhereUniqueInput!): User
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Query {
+  episode(where: EpisodeWhereUniqueInput!): Episode
+  episodes(where: EpisodeWhereInput, orderBy: EpisodeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Episode]!
+  episodesConnection(where: EpisodeWhereInput, orderBy: EpisodeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): EpisodeConnection!
+  film(where: FilmWhereUniqueInput!): Film
+  films(where: FilmWhereInput, orderBy: FilmOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Film]!
+  filmsConnection(where: FilmWhereInput, orderBy: FilmOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FilmConnection!
+  filmUser(where: FilmUserWhereUniqueInput!): FilmUser
+  filmUsers(where: FilmUserWhereInput, orderBy: FilmUserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FilmUser]!
+  filmUsersConnection(where: FilmUserWhereInput, orderBy: FilmUserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FilmUserConnection!
+  saison(where: SaisonWhereUniqueInput!): Saison
+  saisons(where: SaisonWhereInput, orderBy: SaisonOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Saison]!
+  saisonsConnection(where: SaisonWhereInput, orderBy: SaisonOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SaisonConnection!
+  serie(where: SerieWhereUniqueInput!): Serie
+  series(where: SerieWhereInput, orderBy: SerieOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Serie]!
+  seriesConnection(where: SerieWhereInput, orderBy: SerieOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SerieConnection!
+  serieUser(where: SerieUserWhereUniqueInput!): SerieUser
+  serieUsers(where: SerieUserWhereInput, orderBy: SerieUserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SerieUser]!
+  serieUsersConnection(where: SerieUserWhereInput, orderBy: SerieUserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SerieUserConnection!
+  user(where: UserWhereUniqueInput!): User
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  node(id: ID!): Node
+}
+
+type Saison {
+  id: ID!
+  number: String!
+  serie: Serie!
+  episodes(where: EpisodeWhereInput, orderBy: EpisodeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Episode!]
+}
+
+type SaisonConnection {
+  pageInfo: PageInfo!
+  edges: [SaisonEdge]!
+  aggregate: AggregateSaison!
+}
+
+input SaisonCreateInput {
+  number: String!
+  serie: SerieCreateOneWithoutSaisonsInput!
+  episodes: EpisodeCreateManyWithoutSaisonInput
+}
+
+input SaisonCreateManyWithoutSerieInput {
+  create: [SaisonCreateWithoutSerieInput!]
+  connect: [SaisonWhereUniqueInput!]
+}
+
+input SaisonCreateOneWithoutEpisodesInput {
+  create: SaisonCreateWithoutEpisodesInput
+  connect: SaisonWhereUniqueInput
+}
+
+input SaisonCreateWithoutEpisodesInput {
+  number: String!
+  serie: SerieCreateOneWithoutSaisonsInput!
+}
+
+input SaisonCreateWithoutSerieInput {
+  number: String!
+  episodes: EpisodeCreateManyWithoutSaisonInput
+}
+
+type SaisonEdge {
+  node: Saison!
+  cursor: String!
+}
+
+enum SaisonOrderByInput {
+  id_ASC
+  id_DESC
+  number_ASC
+  number_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type SaisonPreviousValues {
+  id: ID!
+  number: String!
+}
+
+input SaisonScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  number: String
+  number_not: String
+  number_in: [String!]
+  number_not_in: [String!]
+  number_lt: String
+  number_lte: String
+  number_gt: String
+  number_gte: String
+  number_contains: String
+  number_not_contains: String
+  number_starts_with: String
+  number_not_starts_with: String
+  number_ends_with: String
+  number_not_ends_with: String
+  AND: [SaisonScalarWhereInput!]
+  OR: [SaisonScalarWhereInput!]
+  NOT: [SaisonScalarWhereInput!]
+}
+
+type SaisonSubscriptionPayload {
+  mutation: MutationType!
+  node: Saison
+  updatedFields: [String!]
+  previousValues: SaisonPreviousValues
+}
+
+input SaisonSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: SaisonWhereInput
+  AND: [SaisonSubscriptionWhereInput!]
+  OR: [SaisonSubscriptionWhereInput!]
+  NOT: [SaisonSubscriptionWhereInput!]
+}
+
+input SaisonUpdateInput {
+  number: String
+  serie: SerieUpdateOneRequiredWithoutSaisonsInput
+  episodes: EpisodeUpdateManyWithoutSaisonInput
+}
+
+input SaisonUpdateManyDataInput {
+  number: String
+}
+
+input SaisonUpdateManyMutationInput {
+  number: String
+}
+
+input SaisonUpdateManyWithoutSerieInput {
+  create: [SaisonCreateWithoutSerieInput!]
+  delete: [SaisonWhereUniqueInput!]
+  connect: [SaisonWhereUniqueInput!]
+  set: [SaisonWhereUniqueInput!]
+  disconnect: [SaisonWhereUniqueInput!]
+  update: [SaisonUpdateWithWhereUniqueWithoutSerieInput!]
+  upsert: [SaisonUpsertWithWhereUniqueWithoutSerieInput!]
+  deleteMany: [SaisonScalarWhereInput!]
+  updateMany: [SaisonUpdateManyWithWhereNestedInput!]
+}
+
+input SaisonUpdateManyWithWhereNestedInput {
+  where: SaisonScalarWhereInput!
+  data: SaisonUpdateManyDataInput!
+}
+
+input SaisonUpdateOneRequiredWithoutEpisodesInput {
+  create: SaisonCreateWithoutEpisodesInput
+  update: SaisonUpdateWithoutEpisodesDataInput
+  upsert: SaisonUpsertWithoutEpisodesInput
+  connect: SaisonWhereUniqueInput
+}
+
+input SaisonUpdateWithoutEpisodesDataInput {
+  number: String
+  serie: SerieUpdateOneRequiredWithoutSaisonsInput
+}
+
+input SaisonUpdateWithoutSerieDataInput {
+  number: String
+  episodes: EpisodeUpdateManyWithoutSaisonInput
+}
+
+input SaisonUpdateWithWhereUniqueWithoutSerieInput {
+  where: SaisonWhereUniqueInput!
+  data: SaisonUpdateWithoutSerieDataInput!
+}
+
+input SaisonUpsertWithoutEpisodesInput {
+  update: SaisonUpdateWithoutEpisodesDataInput!
+  create: SaisonCreateWithoutEpisodesInput!
+}
+
+input SaisonUpsertWithWhereUniqueWithoutSerieInput {
+  where: SaisonWhereUniqueInput!
+  update: SaisonUpdateWithoutSerieDataInput!
+  create: SaisonCreateWithoutSerieInput!
+}
+
+input SaisonWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  number: String
+  number_not: String
+  number_in: [String!]
+  number_not_in: [String!]
+  number_lt: String
+  number_lte: String
+  number_gt: String
+  number_gte: String
+  number_contains: String
+  number_not_contains: String
+  number_starts_with: String
+  number_not_starts_with: String
+  number_ends_with: String
+  number_not_ends_with: String
+  serie: SerieWhereInput
+  episodes_every: EpisodeWhereInput
+  episodes_some: EpisodeWhereInput
+  episodes_none: EpisodeWhereInput
+  AND: [SaisonWhereInput!]
+  OR: [SaisonWhereInput!]
+  NOT: [SaisonWhereInput!]
+}
+
+input SaisonWhereUniqueInput {
+  id: ID
+}
+
+type Serie {
+  id: ID!
+  name: String!
+  genre: String!
+  description: String!
+  nbEp: String!
+  nbSais: String!
+  saisons(where: SaisonWhereInput, orderBy: SaisonOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Saison!]
+  episodes(where: EpisodeWhereInput, orderBy: EpisodeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Episode!]
+}
+
+type SerieConnection {
+  pageInfo: PageInfo!
+  edges: [SerieEdge]!
+  aggregate: AggregateSerie!
+}
+
+input SerieCreateInput {
+  name: String!
+  genre: String!
+  description: String!
+  nbEp: String!
+  nbSais: String!
+  saisons: SaisonCreateManyWithoutSerieInput
+  episodes: EpisodeCreateManyWithoutSerieInput
+}
+
+input SerieCreateOneInput {
+  create: SerieCreateInput
+  connect: SerieWhereUniqueInput
+}
+
+input SerieCreateOneWithoutEpisodesInput {
+  create: SerieCreateWithoutEpisodesInput
+  connect: SerieWhereUniqueInput
+}
+
+input SerieCreateOneWithoutSaisonsInput {
+  create: SerieCreateWithoutSaisonsInput
+  connect: SerieWhereUniqueInput
+}
+
+input SerieCreateWithoutEpisodesInput {
+  name: String!
+  genre: String!
+  description: String!
+  nbEp: String!
+  nbSais: String!
+  saisons: SaisonCreateManyWithoutSerieInput
+}
+
+input SerieCreateWithoutSaisonsInput {
+  name: String!
+  genre: String!
+  description: String!
+  nbEp: String!
+  nbSais: String!
+  episodes: EpisodeCreateManyWithoutSerieInput
+}
+
+type SerieEdge {
+  node: Serie!
+  cursor: String!
+}
+
+enum SerieOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  genre_ASC
+  genre_DESC
+  description_ASC
+  description_DESC
+  nbEp_ASC
+  nbEp_DESC
+  nbSais_ASC
+  nbSais_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type SeriePreviousValues {
+  id: ID!
+  name: String!
+  genre: String!
+  description: String!
+  nbEp: String!
+  nbSais: String!
+}
+
+type SerieSubscriptionPayload {
+  mutation: MutationType!
+  node: Serie
+  updatedFields: [String!]
+  previousValues: SeriePreviousValues
+}
+
+input SerieSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: SerieWhereInput
+  AND: [SerieSubscriptionWhereInput!]
+  OR: [SerieSubscriptionWhereInput!]
+  NOT: [SerieSubscriptionWhereInput!]
+}
+
+input SerieUpdateDataInput {
+  name: String
+  genre: String
+  description: String
+  nbEp: String
+  nbSais: String
+  saisons: SaisonUpdateManyWithoutSerieInput
+  episodes: EpisodeUpdateManyWithoutSerieInput
+}
+
+input SerieUpdateInput {
+  name: String
+  genre: String
+  description: String
+  nbEp: String
+  nbSais: String
+  saisons: SaisonUpdateManyWithoutSerieInput
+  episodes: EpisodeUpdateManyWithoutSerieInput
+}
+
+input SerieUpdateManyMutationInput {
+  name: String
+  genre: String
+  description: String
+  nbEp: String
+  nbSais: String
+}
+
+input SerieUpdateOneRequiredInput {
+  create: SerieCreateInput
+  update: SerieUpdateDataInput
+  upsert: SerieUpsertNestedInput
+  connect: SerieWhereUniqueInput
+}
+
+input SerieUpdateOneRequiredWithoutEpisodesInput {
+  create: SerieCreateWithoutEpisodesInput
+  update: SerieUpdateWithoutEpisodesDataInput
+  upsert: SerieUpsertWithoutEpisodesInput
+  connect: SerieWhereUniqueInput
+}
+
+input SerieUpdateOneRequiredWithoutSaisonsInput {
+  create: SerieCreateWithoutSaisonsInput
+  update: SerieUpdateWithoutSaisonsDataInput
+  upsert: SerieUpsertWithoutSaisonsInput
+  connect: SerieWhereUniqueInput
+}
+
+input SerieUpdateWithoutEpisodesDataInput {
+  name: String
+  genre: String
+  description: String
+  nbEp: String
+  nbSais: String
+  saisons: SaisonUpdateManyWithoutSerieInput
+}
+
+input SerieUpdateWithoutSaisonsDataInput {
+  name: String
+  genre: String
+  description: String
+  nbEp: String
+  nbSais: String
+  episodes: EpisodeUpdateManyWithoutSerieInput
+}
+
+input SerieUpsertNestedInput {
+  update: SerieUpdateDataInput!
+  create: SerieCreateInput!
+}
+
+input SerieUpsertWithoutEpisodesInput {
+  update: SerieUpdateWithoutEpisodesDataInput!
+  create: SerieCreateWithoutEpisodesInput!
+}
+
+input SerieUpsertWithoutSaisonsInput {
+  update: SerieUpdateWithoutSaisonsDataInput!
+  create: SerieCreateWithoutSaisonsInput!
+}
+
+type SerieUser {
+  id: ID!
+  finish: Boolean
+  serie: Serie!
+  user: User!
+}
+
+type SerieUserConnection {
+  pageInfo: PageInfo!
+  edges: [SerieUserEdge]!
+  aggregate: AggregateSerieUser!
+}
+
+input SerieUserCreateInput {
+  finish: Boolean
+  serie: SerieCreateOneInput!
+  user: UserCreateOneWithoutSerieInput!
+}
+
+input SerieUserCreateManyWithoutUserInput {
+  create: [SerieUserCreateWithoutUserInput!]
+  connect: [SerieUserWhereUniqueInput!]
+}
+
+input SerieUserCreateWithoutUserInput {
+  finish: Boolean
+  serie: SerieCreateOneInput!
+}
+
+type SerieUserEdge {
+  node: SerieUser!
+  cursor: String!
+}
+
+enum SerieUserOrderByInput {
+  id_ASC
+  id_DESC
+  finish_ASC
+  finish_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type SerieUserPreviousValues {
+  id: ID!
+  finish: Boolean
+}
+
+input SerieUserScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  finish: Boolean
+  finish_not: Boolean
+  AND: [SerieUserScalarWhereInput!]
+  OR: [SerieUserScalarWhereInput!]
+  NOT: [SerieUserScalarWhereInput!]
+}
+
+type SerieUserSubscriptionPayload {
+  mutation: MutationType!
+  node: SerieUser
+  updatedFields: [String!]
+  previousValues: SerieUserPreviousValues
+}
+
+input SerieUserSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: SerieUserWhereInput
+  AND: [SerieUserSubscriptionWhereInput!]
+  OR: [SerieUserSubscriptionWhereInput!]
+  NOT: [SerieUserSubscriptionWhereInput!]
+}
+
+input SerieUserUpdateInput {
+  finish: Boolean
+  serie: SerieUpdateOneRequiredInput
+  user: UserUpdateOneRequiredWithoutSerieInput
+}
+
+input SerieUserUpdateManyDataInput {
+  finish: Boolean
+}
+
+input SerieUserUpdateManyMutationInput {
+  finish: Boolean
+}
+
+input SerieUserUpdateManyWithoutUserInput {
+  create: [SerieUserCreateWithoutUserInput!]
+  delete: [SerieUserWhereUniqueInput!]
+  connect: [SerieUserWhereUniqueInput!]
+  set: [SerieUserWhereUniqueInput!]
+  disconnect: [SerieUserWhereUniqueInput!]
+  update: [SerieUserUpdateWithWhereUniqueWithoutUserInput!]
+  upsert: [SerieUserUpsertWithWhereUniqueWithoutUserInput!]
+  deleteMany: [SerieUserScalarWhereInput!]
+  updateMany: [SerieUserUpdateManyWithWhereNestedInput!]
+}
+
+input SerieUserUpdateManyWithWhereNestedInput {
+  where: SerieUserScalarWhereInput!
+  data: SerieUserUpdateManyDataInput!
+}
+
+input SerieUserUpdateWithoutUserDataInput {
+  finish: Boolean
+  serie: SerieUpdateOneRequiredInput
+}
+
+input SerieUserUpdateWithWhereUniqueWithoutUserInput {
+  where: SerieUserWhereUniqueInput!
+  data: SerieUserUpdateWithoutUserDataInput!
+}
+
+input SerieUserUpsertWithWhereUniqueWithoutUserInput {
+  where: SerieUserWhereUniqueInput!
+  update: SerieUserUpdateWithoutUserDataInput!
+  create: SerieUserCreateWithoutUserInput!
+}
+
+input SerieUserWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  finish: Boolean
+  finish_not: Boolean
+  serie: SerieWhereInput
+  user: UserWhereInput
+  AND: [SerieUserWhereInput!]
+  OR: [SerieUserWhereInput!]
+  NOT: [SerieUserWhereInput!]
+}
+
+input SerieUserWhereUniqueInput {
+  id: ID
+}
+
+input SerieWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  genre: String
+  genre_not: String
+  genre_in: [String!]
+  genre_not_in: [String!]
+  genre_lt: String
+  genre_lte: String
+  genre_gt: String
+  genre_gte: String
+  genre_contains: String
+  genre_not_contains: String
+  genre_starts_with: String
+  genre_not_starts_with: String
+  genre_ends_with: String
+  genre_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  nbEp: String
+  nbEp_not: String
+  nbEp_in: [String!]
+  nbEp_not_in: [String!]
+  nbEp_lt: String
+  nbEp_lte: String
+  nbEp_gt: String
+  nbEp_gte: String
+  nbEp_contains: String
+  nbEp_not_contains: String
+  nbEp_starts_with: String
+  nbEp_not_starts_with: String
+  nbEp_ends_with: String
+  nbEp_not_ends_with: String
+  nbSais: String
+  nbSais_not: String
+  nbSais_in: [String!]
+  nbSais_not_in: [String!]
+  nbSais_lt: String
+  nbSais_lte: String
+  nbSais_gt: String
+  nbSais_gte: String
+  nbSais_contains: String
+  nbSais_not_contains: String
+  nbSais_starts_with: String
+  nbSais_not_starts_with: String
+  nbSais_ends_with: String
+  nbSais_not_ends_with: String
+  saisons_every: SaisonWhereInput
+  saisons_some: SaisonWhereInput
+  saisons_none: SaisonWhereInput
+  episodes_every: EpisodeWhereInput
+  episodes_some: EpisodeWhereInput
+  episodes_none: EpisodeWhereInput
+  AND: [SerieWhereInput!]
+  OR: [SerieWhereInput!]
+  NOT: [SerieWhereInput!]
+}
+
+input SerieWhereUniqueInput {
+  id: ID
+}
+
+type Subscription {
+  episode(where: EpisodeSubscriptionWhereInput): EpisodeSubscriptionPayload
+  film(where: FilmSubscriptionWhereInput): FilmSubscriptionPayload
+  filmUser(where: FilmUserSubscriptionWhereInput): FilmUserSubscriptionPayload
+  saison(where: SaisonSubscriptionWhereInput): SaisonSubscriptionPayload
+  serie(where: SerieSubscriptionWhereInput): SerieSubscriptionPayload
+  serieUser(where: SerieUserSubscriptionWhereInput): SerieUserSubscriptionPayload
+  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+}
+
+type User {
+  id: ID!
+  email: String!
+  password: String!
+  username: String!
+  type: String!
+  serie(where: SerieUserWhereInput, orderBy: SerieUserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SerieUser!]
+  film(where: FilmUserWhereInput, orderBy: FilmUserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FilmUser!]
+}
+
+type UserConnection {
+  pageInfo: PageInfo!
+  edges: [UserEdge]!
+  aggregate: AggregateUser!
+}
+
+input UserCreateInput {
+  email: String!
+  password: String!
+  username: String!
+  type: String!
+  serie: SerieUserCreateManyWithoutUserInput
+  film: FilmUserCreateManyWithoutUserInput
+}
+
+input UserCreateOneWithoutFilmInput {
+  create: UserCreateWithoutFilmInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutSerieInput {
+  create: UserCreateWithoutSerieInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutFilmInput {
+  email: String!
+  password: String!
+  username: String!
+  type: String!
+  serie: SerieUserCreateManyWithoutUserInput
+}
+
+input UserCreateWithoutSerieInput {
+  email: String!
+  password: String!
+  username: String!
+  type: String!
+  film: FilmUserCreateManyWithoutUserInput
+}
+
+type UserEdge {
+  node: User!
+  cursor: String!
+}
+
+enum UserOrderByInput {
+  id_ASC
+  id_DESC
+  email_ASC
+  email_DESC
+  password_ASC
+  password_DESC
+  username_ASC
+  username_DESC
+  type_ASC
+  type_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type UserPreviousValues {
+  id: ID!
+  email: String!
+  password: String!
+  username: String!
+  type: String!
+}
+
+type UserSubscriptionPayload {
+  mutation: MutationType!
+  node: User
+  updatedFields: [String!]
+  previousValues: UserPreviousValues
+}
+
+input UserSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: UserWhereInput
+  AND: [UserSubscriptionWhereInput!]
+  OR: [UserSubscriptionWhereInput!]
+  NOT: [UserSubscriptionWhereInput!]
+}
+
+input UserUpdateInput {
+  email: String
+  password: String
+  username: String
+  type: String
+  serie: SerieUserUpdateManyWithoutUserInput
+  film: FilmUserUpdateManyWithoutUserInput
+}
+
+input UserUpdateManyMutationInput {
+  email: String
+  password: String
+  username: String
+  type: String
+}
+
+input UserUpdateOneRequiredWithoutFilmInput {
+  create: UserCreateWithoutFilmInput
+  update: UserUpdateWithoutFilmDataInput
+  upsert: UserUpsertWithoutFilmInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutSerieInput {
+  create: UserCreateWithoutSerieInput
+  update: UserUpdateWithoutSerieDataInput
+  upsert: UserUpsertWithoutSerieInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateWithoutFilmDataInput {
+  email: String
+  password: String
+  username: String
+  type: String
+  serie: SerieUserUpdateManyWithoutUserInput
+}
+
+input UserUpdateWithoutSerieDataInput {
+  email: String
+  password: String
+  username: String
+  type: String
+  film: FilmUserUpdateManyWithoutUserInput
+}
+
+input UserUpsertWithoutFilmInput {
+  update: UserUpdateWithoutFilmDataInput!
+  create: UserCreateWithoutFilmInput!
+}
+
+input UserUpsertWithoutSerieInput {
+  update: UserUpdateWithoutSerieDataInput!
+  create: UserCreateWithoutSerieInput!
+}
+
+input UserWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  username: String
+  username_not: String
+  username_in: [String!]
+  username_not_in: [String!]
+  username_lt: String
+  username_lte: String
+  username_gt: String
+  username_gte: String
+  username_contains: String
+  username_not_contains: String
+  username_starts_with: String
+  username_not_starts_with: String
+  username_ends_with: String
+  username_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  serie_every: SerieUserWhereInput
+  serie_some: SerieUserWhereInput
+  serie_none: SerieUserWhereInput
+  film_every: FilmUserWhereInput
+  film_some: FilmUserWhereInput
+  film_none: FilmUserWhereInput
+  AND: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+}
+
+input UserWhereUniqueInput {
+  id: ID
+  email: String
+  username: String
+}
