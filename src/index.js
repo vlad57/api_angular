@@ -41,4 +41,8 @@ const server = new GraphQLServer({
   context: req => ({...req, prisma})
 })
 
-server.start(() => console.log('Server is running on http://localhost:4000'))
+const opt = {
+  playground: false
+};
+
+server.start(opt, () => console.log('Server is running on http://localhost:4000'));

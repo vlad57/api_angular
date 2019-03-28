@@ -3,6 +3,10 @@ import { getUserId } from '../utils'
 
 export default {
   users (parent, args, ctx) {
+    const userId = getUserId(ctx);
+    if (!userId){
+      throw new Error("Not Authenticated");
+    }
     return ctx.prisma.users({
       orderBy: args.orderBy
     })
